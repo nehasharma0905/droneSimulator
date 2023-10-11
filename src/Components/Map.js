@@ -16,8 +16,6 @@ const MapContainer = () => {
   const { dataSet } = useContext(Context);
   const { isSimulationOn, recenter, setRecenter } = useContext(Context);
 
-  // const [viewState, setViewState] = useState({ ...recenter });
-
   return (
     <Map
       initialViewState={{ ...recenter }}

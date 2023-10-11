@@ -34,23 +34,47 @@ const MapMarker = (dataSet) => {
       setTimeout(() => {
         setCurrIndex(currIndex + 1);
       }, miliseconds);
+    } else if (
+      currIndex === fullPath?.length - 1 &&
+      isSimulationOn &&
+      isInitialized
+    ) {
+      setPathCovered([...pathCovered, fullPath[currIndex]]);
     }
   }, [currIndex, isSimulationOn]);
 
-  return pathCovered.map((point, i) => (
-    <Marker
-      key={i}
-      longitude={point.longitude}
-      latitude={point.latitude}
-      anchor="bottom"
-      style={{ position: "absolute", top: 0, left: 0 }}
-    >
-      <div
-        className="point-div"
-        style={{ backgroundColor: dataSimulation.color }}
-      ></div>
-    </Marker>
-  ));
+  return (
+    <>
+      {fullPath.map((point, i) => (
+        <Marker
+          key={i}
+          longitude={point.longitude}
+          latitude={point.latitude}
+          anchor="bottom"
+          style={{ position: "absolute", top: 0, left: 0 }}
+        >
+          <div
+            className="point-div"
+            style={{ backgroundColor: "#a3b18a41" }}
+          ></div>
+        </Marker>
+      ))}
+      {pathCovered.map((point, i) => (
+        <Marker
+          key={i}
+          longitude={point.longitude}
+          latitude={point.latitude}
+          anchor="bottom"
+          style={{ position: "absolute", top: 0, left: 0 }}
+        >
+          <div
+            className="point-div"
+            style={{ backgroundColor: dataSimulation.color }}
+          ></div>
+        </Marker>
+      ))}
+    </>
+  );
 };
 
 export default MapMarker;

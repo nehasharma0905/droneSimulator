@@ -2,6 +2,7 @@
   padding: 20px;
   max-height: 85vh;
   overflow: auto;
+  margin-top: 20px;
 }
 
 .add-new-data-set .field {

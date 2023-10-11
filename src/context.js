@@ -32,6 +32,12 @@ export function ContextProvider({ children }) {
     setDataSet([data1]);
   }, []);
 
+  useEffect(() => {
+    if (isAddDataModalOpen || isFileUploadModalOpen) {
+      setIsSimulationOn(false);
+    }
+  }, [isAddDataModalOpen, isFileUploadModalOpen]);
+
   console.log(dataSet);
 
   return (

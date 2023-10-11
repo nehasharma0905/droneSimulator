@@ -14,10 +14,11 @@ const BottomPanel = () => {
 
   const toggleCenter = (item) => {
     const initialPos = item.positions.length ? item.positions[0] : recenter;
+    console.log({ initialPos, item });
     setRecenter({
       longitude: initialPos.longitude,
       latitude: initialPos.latitude,
-      zoom: 10,
+      zoom: 16,
     });
   };
 
@@ -47,8 +48,13 @@ const BottomPanel = () => {
           {dataSet.map((item, index) => {
             return (
               <li key={index}>
-                <span style={{ backgroundColor: item.color }}></span>
-                <h5>{item.title}</h5>
+                <div className="item-title">
+                  <div
+                    className="color-circle"
+                    style={{ backgroundColor: item.color }}
+                  ></div>
+                  <h5>{item.title}</h5>
+                </div>
                 <button onClick={() => toggleCenter(item)}>
                   Click to focus
                 </button>

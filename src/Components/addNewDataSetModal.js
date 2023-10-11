@@ -76,7 +76,7 @@ const AddNewDataSetModal = () => {
             <div className="positions-fields" key={index}>
               <h5>Stamp {index + 1}</h5>
               <div className="field">
-                <label>timestamp</label>
+                <label>Timestamp</label>
                 <input
                   value={el.timestamp}
                   onChange={(e) =>
@@ -86,7 +86,7 @@ const AddNewDataSetModal = () => {
               </div>
 
               <div className="field">
-                <label>longitudeitute</label>
+                <label>Longitude</label>
                 <input
                   value={el.longitude}
                   onChange={(e) =>
@@ -96,7 +96,7 @@ const AddNewDataSetModal = () => {
               </div>
 
               <div className="field">
-                <label>latitudeitute</label>
+                <label>Latitude</label>
                 <input
                   value={el.latitude}
                   onChange={(e) =>
@@ -112,16 +112,15 @@ const AddNewDataSetModal = () => {
             Add New Position{" "}
           </button>
           <div className="field">
-            <label>timestamp</label>
+            <label>Timestamp</label>
             <input
               value={newPosition.timestamp}
-              type="number"
               onChange={(e) => updateNewPosition("timestamp", e.target.value)}
             />
           </div>
 
           <div className="field">
-            <label>longitudeitute</label>
+            <label>Longitude</label>
             <input
               value={newPosition.longitude}
               onChange={(e) => updateNewPosition("longitude", e.target.value)}
@@ -129,7 +128,7 @@ const AddNewDataSetModal = () => {
           </div>
 
           <div className="field">
-            <label>latitudeitute</label>
+            <label>Latitude</label>
             <input
               value={newPosition.latitude}
               onChange={(e) => updateNewPosition("latitude", e.target.value)}
