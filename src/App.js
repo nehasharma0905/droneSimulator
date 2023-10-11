@@ -1,18 +1,21 @@
 import "./App.css";
+import "./Style/map.css";
+import "./Style/bottomPanel.css";
+import "./Style/dataset-modal.css";
+import "./Style/fileUpload.css";
 import MapContainer from "./Components/Map";
-import SidePanal from "./Components/SidePanal";
-import BottomPanal from "./Components/BottomPanal";
+import BottomPanel from "./Components/BottomPanel";
 import AddNewDataSetModal from "./Components/addNewDataSetModal";
+import FileUploadModal from "./Components/fileUpload";
 
 function App() {
   return (
     <div className="App">
-      <div className="Map-SidePanel">
-        <MapContainer />
-        <SidePanal />
-      </div>
-      <BottomPanal />
+      <h3 className="App-title">Drone Simulator FlytBase - Neha Sharma</h3>
+      <MapContainer />
+      <BottomPanel />
       <AddNewDataSetModal />
+      <FileUploadModal />
     </div>
   );
 }

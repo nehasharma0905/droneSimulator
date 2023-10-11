@@ -1,0 +1,57 @@
+.add-new-data-set {
+  padding: 20px;
+  max-height: 85vh;
+  overflow: auto;
+}
+
+.add-new-data-set .field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.add-position,
+.add-data-set {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #354f52;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  &:hover {
+    background-color: #354f52;
+    color: white;
+  }
+}
+
+.positions-data {
+  margin-top: 20px;
+}
+.field {
+  height: 32px;
+}
+label {
+  padding-right: 5px;
+}
+input {
+  height: 28px;
+  border-radius: 3px;
+  border: 1px solid #354f52;
+  padding: 5px 10px;
+  background-color: #dad7cd;
+}
+h4 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+h5 {
+  font-size: 16px;
+  text-align: center;
+}
+.positions-fields {
+  margin-bottom: 10px;
+}

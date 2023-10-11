@@ -1,0 +1,38 @@
+.Map {
+  border-radius: 5px;
+  border: 2px solid #354f52;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.mapboxgl-map {
+  width: 100%;
+  height: calc(100vh - 250px) !important;
+  overflow: hidden;
+}
+
+.mapboxgl-canvas-container {
+  width: 100%;
+  height: 100%;
+}
+
+.mapboxgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mapboxgl-control-container {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.point-div {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}

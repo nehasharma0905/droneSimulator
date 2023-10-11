@@ -1,0 +1,70 @@
+.bottom-panel {
+  background-color: #84a98c41;
+  padding: 15px;
+  /* border-radius: 5px; */
+  border: 2px solid #a3b18a;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  position: relative;
+  z-index: 100;
+}
+
+.column1,
+.column2,
+.column3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.dataset,
+.fileupload,
+.pause,
+.simulate {
+  color: #fff;
+  font-size: 15px;
+  background-color: #344e41;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: 2px solid #354f52;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.dataset:hover,
+.fileupload:hover,
+.pause:hover,
+.simulate:hover {
+  color: #fff;
+  background-color: #588157;
+  border: 2px solid #588157;
+}
+
+.column3 ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.column3 ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 30px;
+}
+
+.column3 ul li span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.column3 ul li button {
+}

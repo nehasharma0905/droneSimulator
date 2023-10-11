@@ -9,39 +9,53 @@ import { Context } from "../context";
 const AddNewDataSetModal = () => {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
-  const [icon, setIcon] = useState(null);
+  const { isAddDataModalOpen, setIsAddDataModalOpen, addDataSet } =
+    useContext(Context);
 
-  const [postions, setPositions] = useState([]);
+  const [positions, setPositions] = useState([]);
 
   const [newPosition, setNewPosition] = useState({
-    time: 0,
-    long: 0,
-    lat: 0,
+    timestamp: 0,
+    longitude: 0,
+    latitude: 0,
   });
+
+  const handleAddDataSet = () => {
+    addDataSet({
+      title,
+      color,
+      positions,
+    });
+    setIsAddDataModalOpen(false);
+  };
 
   const resetNewPosition = () => {
     setNewPosition({
-      time: 0,
-      long: 0,
-      lat: 0,
+      timestamp: 0,
+      longitude: 1,
+      latitude: 1,
     });
   };
 
   const addPosition = () => {
-    setPositions([...postions, newPosition]);
+    setPositions([...positions, newPosition]);
+    resetNewPosition();
   };
 
   const updatePositionByIndex = (index, key, value) => {
-    const temp = [...postions];
+    const temp = [...positions];
     temp[index][key] = value;
     setPositions([...temp]);
   };
 
   const updateNewPosition = (key, value) => {
+    console.log({ key, value });
     const temp = { ...newPosition };
     temp[key] = value;
     setNewPosition({ ...temp });
   };
+
+  console.log({ positions });
 
   return (
     <div className="add-new-data-set">
@@ -55,72 +69,78 @@ const AddNewDataSetModal = () => {
         <input value={color} onChange={(e) => setColor(e.target.value)} />
       </div>
 
-      <div className="field">
-        <label>Icon</label>
-        {/* <input value={title} onChange={(e) => setTitle(e.target.value)} /> */}
-      </div>
+      <div className="positions-data">
+        <h4>Positions</h4>
+        {positions.map((el, index) => {
+          return (
+            <div className="positions-fields" key={index}>
+              <h5>Stamp {index + 1}</h5>
+              <div className="field">
+                <label>timestamp</label>
+                <input
+                  value={el.timestamp}
+                  onChange={(e) =>
+                    updatePositionByIndex(index, "timestamp", e.target.value)
+                  }
+                />
+              </div>
 
-      <div>
-        {postions.map((el, index) => {
-          <div className="positions-fields">
-            <div className="field">
-              <label>Time</label>
-              <input
-                value={el.time}
-                onChange={(e) =>
-                  updatePositionByIndex(index, "time", e.target.value)
-                }
-              />
-            </div>
+              <div className="field">
+                <label>longitudeitute</label>
+                <input
+                  value={el.longitude}
+                  onChange={(e) =>
+                    updatePositionByIndex(index, "longitude", e.target.value)
+                  }
+                />
+              </div>
 
-            <div className="field">
-              <label>Longitute</label>
-              <input
-                value={el.long}
-                onChange={(e) =>
-                  updatePositionByIndex(index, "long", e.target.value)
-                }
-              />
+              <div className="field">
+                <label>latitudeitute</label>
+                <input
+                  value={el.latitude}
+                  onChange={(e) =>
+                    updatePositionByIndex(index, "latitude", e.target.value)
+                  }
+                />
+              </div>
             </div>
-
-            <div className="field">
-              <label>Latitute</label>
-              <input
-                value={el.lat}
-                onChange={(e) =>
-                  updatePositionByIndex(index, "lat", e.target.value)
-                }
-              />
-            </div>
-          </div>;
+          );
         })}
         <div className="positions-fields">
+          <button className="add-position" onClick={addPosition}>
+            Add New Position{" "}
+          </button>
           <div className="field">
-            <label>Time</label>
+            <label>timestamp</label>
             <input
-              value={newPosition.time}
-              onChange={(e) => updateNewPosition("time", e.target.value)}
+              value={newPosition.timestamp}
+              type="number"
+              onChange={(e) => updateNewPosition("timestamp", e.target.value)}
             />
           </div>
 
           <div className="field">
-            <label>Longitute</label>
+            <label>longitudeitute</label>
             <input
-              value={newPosition.long}
-              onChange={(e) => updateNewPosition("long", e.target.value)}
+              value={newPosition.longitude}
+              onChange={(e) => updateNewPosition("longitude", e.target.value)}
             />
           </div>
 
           <div className="field">
-            <label>Latitute</label>
+            <label>latitudeitute</label>
             <input
-              value={newPosition.lat}
-              onChange={(e) => updateNewPosition("lat", e.target.value)}
+              value={newPosition.latitude}
+              onChange={(e) => updateNewPosition("latitude", e.target.value)}
             />
           </div>
         </div>
-        <button>Add Position </button>
       </div>
+
+      <button className="add-data-set" onClick={handleAddDataSet}>
+        Add DataSet
+      </button>
     </div>
   );
 };
@@ -138,7 +158,7 @@ export default function BasicModal() {
       <Sheet
         variant="outlined"
         sx={{
-          maxWidth: 500,
+          maxWidth: 700,
           borderRadius: "md",
           p: 3,
           boxShadow: "lg",
