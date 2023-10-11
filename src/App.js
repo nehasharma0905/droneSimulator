@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MapContainer from "./Components/Map";
+import SidePanal from "./Components/SidePanal";
+import BottomPanal from "./Components/BottomPanal";
+import AddNewDataSetModal from "./Components/addNewDataSetModal";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Map-SidePanel">
+        <MapContainer />
+        <SidePanal />
+      </div>
+      <BottomPanal />
+      <AddNewDataSetModal />
     </div>
   );
 }
