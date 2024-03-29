@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <div className="top-bar">
-        <h3 className="App-title">Drone Simulator FlytBase - Neha Sharma</h3>
+        <h3 className="App-title">Drone Simulator - Neha Sharma</h3>
         <h3 className="App-title">
           Simulation : {isSimulationOn ? "ON" : "OFF"}
         </h3>
